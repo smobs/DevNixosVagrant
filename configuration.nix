@@ -4,10 +4,10 @@
   
   environment.systemPackages =
     [
+      emacs
       git
       stdenv
       tmux
-      neo4j
       nix-repl
     ];
  

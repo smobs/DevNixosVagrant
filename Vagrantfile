@@ -1,7 +1,8 @@
 Vagrant.configure("2") do |config|
 
+
     # obvious TODO: add a nicer interface or error checking
-    project = "Yenode"
+    project = ENV["VAGRANT_PROJECT"]
 
     # our custom built VM
     config.vm.box = "chromaticleaves/nixos-14.04-x86_64"
@@ -18,8 +19,8 @@ Vagrant.configure("2") do |config|
     # config.vm.network "forwarded_port", guest: 8000, host: 8080
 
     # syncing project or other folders
-    # config.vm.synced_folder "./myproject", "/myproject"
-
+    config.vm.synced_folder "../"+ project, "/project"
+    config.vm.synced_folder "~/.emacs.d/", "/home/vagrant/.emacs.d/"
     # looks for a subfolder with the same name as the NIXOS_PROJECT env variable
     # in the examples/ folder and loads its configuration.nix file
     config_path = "configuration.nix"
