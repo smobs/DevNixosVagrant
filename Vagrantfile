@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     # config.vm.network "forwarded_port", guest: 8000, host: 8080
 
     # syncing project or other folders
-    config.vm.synced_folder "../"+ project, "/project"
+    config.vm.synced_folder "../"+ project, "/" + project
     config.vm.synced_folder "~/.emacs.d/", "/home/vagrant/.emacs.d/"
     # looks for a subfolder with the same name as the NIXOS_PROJECT env variable
     # in the examples/ folder and loads its configuration.nix file
