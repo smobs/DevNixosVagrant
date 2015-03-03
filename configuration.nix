@@ -14,5 +14,6 @@
   require = [
     /vagrant/hdevenv.nix
   ];
-  
+
+  networking.firewall.allowedTCPPorts = [3000];
  }

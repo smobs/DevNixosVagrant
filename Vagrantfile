@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     # config.vm.network "public_network"
 
     # port forwarding
-    # config.vm.network "forwarded_port", guest: 8000, host: 8080
+     config.vm.network "forwarded_port", guest: 3000, host: 8080
 
     # syncing project or other folders
     config.vm.synced_folder "../"+ project, "/" + project
