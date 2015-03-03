@@ -2,13 +2,13 @@ Vagrant.configure("2") do |config|
 
 
     # obvious TODO: add a nicer interface or error checking
-    project = ENV["VAGRANT_PROJECT"]
+    projects = ENV["VAGRANT_PATHS"].split(';')
 
     # our custom built VM
     config.vm.box = "chromaticleaves/nixos-14.04-x86_64"
 
     # creates a uniquely named virtualbox instance using the value of `project`
-    config.vm.define project do |v|
+    config.vm.define "HaskellDevBox" do |v|
         nil
     end
 
@@ -23,8 +23,10 @@ Vagrant.configure("2") do |config|
      config.vm.network "forwarded_port", guest: 3000, host: 8080
 
     # syncing project or other folders
-    config.vm.synced_folder "../"+ project, "/" + project
-    config.vm.synced_folder "~/.emacs.d/", "/home/vagrant/.emacs.d/"
+     projects.each { |project|
+        config.vm.synced_folder "../"+ project, "/" + project
+        config.vm.synced_folder "~/.emacs.d/", "/home/vagrant/.emacs.d/"
+    }
 
     # looks for a subfolder with the same name as the NIXOS_PROJECT env variable
     # in the examples/ folder and loads its configuration.nix file
