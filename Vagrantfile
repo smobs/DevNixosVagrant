@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     end
 
     # port forwarding
-     config.vm.network "forwarded_port", guest: 3000, host: 8080
+     config.vm.network "forwarded_port", guest: 3000, host: 3000
 
     # syncing project or other folders
      projects.each { |project|
