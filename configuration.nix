@@ -6,13 +6,14 @@
     [
       emacs
       git
+      nix-repl
       stdenv
       tmux
-      nix-repl
     ];
  
   require = [
     /vagrant/hdevenv.nix
+    /vagrant/emacs.nix
   ];
 
   networking.firewall.allowedTCPPorts = [3000];
