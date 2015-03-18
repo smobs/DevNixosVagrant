@@ -2,5 +2,6 @@
 {
     environment.systemPackages = [
         haskellMode
+	tuaregMode
     ];
 }
