@@ -1,5 +1,4 @@
 (require 'nix-mode)
-(require 'tuareg-mode)
 (require 'haskell-mode-autoloads)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
